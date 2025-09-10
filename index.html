@@ -70,7 +70,7 @@
     </div>
   </section>
 
-  <!-- Stats -->
+  <!-- Stats Section -->
   <section class="section stats">
     <div class="stat">
       <h3 id="users">0</h3>
@@ -98,12 +98,11 @@
     <p id="formMsg" style="margin-top:15px; font-weight:bold;"></p>
   </section>
 
-<!-- Footer with Newsletter + Static Compliance -->
-<footer>
-  <div class="footer-content">
+  <!-- Footer -->
+  <footer>
     <p>© 2025 GlobalstoxFX | Licensed & Regulated</p>
 
-    <!-- Newsletter Subscription -->
+    <!-- Newsletter -->
     <div class="newsletter">
       <h3>Stay Updated</h3>
       <form id="newsletterForm">
@@ -117,19 +116,9 @@
     <div class="footer-compliance">
       <p>Terms of Service | Privacy Policy | AML / KYC Policy | Risk Disclosure</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
+  <!-- Scripts -->
   <script src="assets/js/script.js"></script>
-  <script>
-    // Simple contact form handler
-    const form = document.getElementById("contactForm");
-    const msg = document.getElementById("formMsg");
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      msg.textContent = "✅ Thank you! Your message has been sent.";
-      form.reset();
-    });
-  </script>
 </body>
 </html>
