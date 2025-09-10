@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - GlobalstoxFX</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">GlobalstoxFX</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="compliance.html">Compliance</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="menu-toggle">&#9776;</div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to our support team anytime.</p>
+
+    <form id="contactForm" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <p id="formMsg" style="margin-top:15px; font-weight:bold;"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 GlobalstoxFX | Licensed & Regulated</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Simple form handler (client-side only for now)
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("formMsg");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      msg.textContent = "Thank you! Your message has been sent.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
