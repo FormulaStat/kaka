@@ -98,18 +98,27 @@
     <p id="formMsg" style="margin-top:15px; font-weight:bold;"></p>
   </section>
 
-  <!-- Footer with Compliance -->
-  <footer>
-    <div class="footer-content">
-      <p>© 2025 GlobalstoxFX | Licensed & Regulated</p>
-      <ul class="footer-links">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">AML / KYC Policy</a></li>
-        <li><a href="#">Risk Disclosure</a></li>
-      </ul>
+<!-- Footer with Newsletter + Static Compliance -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 GlobalstoxFX | Licensed & Regulated</p>
+
+    <!-- Newsletter Subscription -->
+    <div class="newsletter">
+      <h3>Stay Updated</h3>
+      <form id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+        <button type="submit" class="btn small">Subscribe</button>
+      </form>
+      <p id="newsletterMsg" style="margin-top:10px; font-weight:bold;"></p>
     </div>
-  </footer>
+
+    <!-- Compliance / Legal Text -->
+    <div class="footer-compliance">
+      <p>Terms of Service | Privacy Policy | AML / KYC Policy | Risk Disclosure</p>
+    </div>
+  </div>
+</footer>
 
   <script src="assets/js/script.js"></script>
   <script>
