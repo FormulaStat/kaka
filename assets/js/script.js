@@ -1,5 +1,5 @@
 // =========================
-// Mobile Menu Toggle
+// Mobile Navbar Toggle
 // =========================
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -9,85 +9,90 @@ menuToggle.addEventListener('click', () => {
 });
 
 // =========================
-// Smooth Scroll for Anchor Links
+// Scroll-triggered Stats Counters
 // =========================
-const links = document.querySelectorAll('.nav-links a[href^="#"]');
+const counters = [
+  { id: 'users', target: 1245 },
+  { id: 'power', target: 3500 },
+  { id: 'withdrawals', target: 875000 }
+];
 
-links.forEach(link => {
-  link.addEventListener('click', (e) => {
+let hasAnimated = false;
+
+function animateCounters() {
+  const statsSection = document.getElementById('stats');
+  if (!statsSection) return;
+  
+  const sectionPos = statsSection.getBoundingClientRect().top;
+  const screenPos = window.innerHeight;
+
+  if (!hasAnimated && sectionPos < screenPos) {
+    counters.forEach(counter => {
+      const el = document.getElementById(counter.id);
+      let count = 0;
+      const increment = Math.ceil(counter.target / 200); // ~2 seconds animation
+      const interval = setInterval(() => {
+        count += increment;
+        if (count >= counter.target) {
+          el.textContent = counter.target.toLocaleString();
+          clearInterval(interval);
+        } else {
+          el.textContent = count.toLocaleString();
+        }
+      }, 10);
+    });
+    hasAnimated = true;
+  }
+}
+
+window.addEventListener('scroll', animateCounters);
+
+// =========================
+// Contact Form Handler
+// =========================
+const contactForm = document.getElementById('contactForm');
+const formMsg = document.getElementById('formMsg');
+
+if(contactForm){
+  contactForm.addEventListener('submit', e => {
     e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active'); // Close menu on mobile
-      }
+    formMsg.textContent = "✅ Thank you! Your message has been sent.";
+    contactForm.reset();
+  });
+}
+
+// =========================
+// Newsletter Form Handler
+// =========================
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterMsg = document.getElementById('newsletterMsg');
+
+if(newsletterForm){
+  newsletterForm.addEventListener('submit', e => {
+    e.preventDefault();
+    newsletterMsg.textContent = "✅ Subscription successful!";
+    newsletterForm.reset();
+  });
+}
+
+// =========================
+// Swiper Testimonials Initialization
+// =========================
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: { delay: 5000 },
+  pagination: { el: ".swiper-pagination", clickable: true },
+});
+
+// =========================
+// Optional: Smooth Scroll for Navbar Links
+// =========================
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target){
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   });
-});
-
-// =========================
-// Newsletter Subscription
-// =========================
-const newsletterForm = document.getElementById("newsletterForm");
-const newsletterMsg = document.getElementById("newsletterMsg");
-
-newsletterForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("newsletterEmail").value;
-  newsletterMsg.textContent = `✅ Thank you! ${email} has been subscribed.`;
-  newsletterForm.reset();
-});
-
-// =========================
-// Contact Form Submission
-// =========================
-const contactForm = document.getElementById("contactForm");
-const formMsg = document.getElementById("formMsg");
-
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  formMsg.textContent = "✅ Thank you! Your message has been sent.";
-  contactForm.reset();
-});
-
-// =========================
-// Animated Stats Counters
-// =========================
-const counters = {
-  users: 1200,
-  power: 5000,
-  withdrawals: 250000
-};
-
-function animateCounter(id, target) {
-  let count = 0;
-  const increment = Math.ceil(target / 200); // speed
-  const el = document.getElementById(id);
-  const interval = setInterval(() => {
-    count += increment;
-    if (count >= target) {
-      count = target;
-      clearInterval(interval);
-    }
-    el.textContent = count.toLocaleString();
-  }, 20);
-}
-
-// Animate stats when visible
-function isInViewport(element) {
-  const rect = element.getBoundingClientRect();
-  return rect.top <= window.innerHeight && rect.bottom >= 0;
-}
-
-const statsSection = document.querySelector('.stats');
-let statsAnimated = false;
-
-window.addEventListener('scroll', () => {
-  if (!statsAnimated && isInViewport(statsSection)) {
-    animateCounter('users', counters.users);
-    animateCounter('power', counters.power);
-    animateCounter('withdrawals', counters.withdrawals);
-    statsAnimated = true;
-  }
 });
