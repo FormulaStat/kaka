@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlobalstoxFX - Secure Crypto Mining & Investment</title>
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Swiper.js for Testimonials Carousel -->
+
+  <!-- Swiper.js CSS for testimonials -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
   <!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
@@ -26,99 +30,120 @@
     <div class="menu-toggle">&#9776;</div>
   </nav>
 
-  <!-- Hero Content -->
-<div class="hero-content" data-aos="fade-down">
-  <h1>GlobalstoxFX – Secure Crypto Mining & Investment</h1>
-  <p>Licensed Crypto Mining & Investment Platform. Transparent, Safe & Accessible.</p>
-  <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-    <a href="signup.html" class="btn">Get Started</a>
-    <a href="#about" class="btn">Learn More</a>
-  </div>
-</div>
-
-<!-- About Section -->
-<section class="section dark" id="about" data-aos="fade-up">
-  <h2>About GlobalstoxFX</h2>
-  <p>GlobalstoxFX is a licensed crypto mining and investment platform dedicated to transparency, security, and innovation.</p>
-  <div class="badges" data-aos="fade-up" data-aos-delay="200">
-    <img src="assets/img/license.png" alt="License Badge">
-    <img src="assets/img/registration.png" alt="Registration Badge">
-    <img src="assets/img/aml-kyc.png" alt="AML/KYC Badge">
-  </div>
-</section>
-
-  <!-- Stat Section -->
-  <section class="section stats" id="stats" data-aos="fade-up">
-  <div class="stat">
-    <h3 id="users">0</h3>
-    <p>Registered Users</p>
-  </div>
-  <div class="stat">
-    <h3 id="power">0</h3>
-    <p>Active Mining Power (TH/s)</p>
-  </div>
-  <div class="stat">
-    <h3 id="withdrawals">0</h3>
-    <p>Total Withdrawals ($)</p>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div id="hero"></div> <!-- Particle animation -->
+    <div class="hero-content" data-aos="fade-down">
+      <h1>GlobalstoxFX – Secure Crypto Mining & Investment</h1>
+      <p>Licensed Crypto Mining & Investment Platform. Transparent, Safe & Accessible.</p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+        <a href="signup.html" class="btn">Get Started</a>
+        <a href="#about" class="btn">Learn More</a>
+      </div>
+    </div>
   </section>
 
-<!-- Services Section -->
-<section class="section" id="services" data-aos="fade-up">
-  <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card" data-aos="fade-right">
-      <h3>Starter Mining Plan</h3>
-      <p>Perfect for beginners exploring crypto mining.</p>
-      <small>ROI varies. No guaranteed profits.</small>
+  <!-- About Section -->
+  <section class="section dark" id="about" data-aos="fade-up">
+    <h2>About GlobalstoxFX</h2>
+    <p>GlobalstoxFX is a licensed crypto mining and investment platform dedicated to transparency, security, and innovation.</p>
+    <div class="badges" data-aos="fade-up" data-aos-delay="200">
+      <img src="assets/img/license.png" alt="License Badge">
+      <img src="assets/img/registration.png" alt="Registration Badge">
+      <img src="assets/img/aml-kyc.png" alt="AML/KYC Badge">
     </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="150">
-      <h3>Pro Mining Plan</h3>
-      <p>Higher mining capacity for experienced investors.</p>
-      <small>ROI varies. No guaranteed profits.</small>
-    </div>
-    <div class="card" data-aos="fade-left" data-aos-delay="300">
-      <h3>Institutional Solutions</h3>
-      <p>Custom packages for large-scale investors. Fully audited.</p>
-      <small>ROI varies. No guaranteed profits.</small>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Why Choose Us -->
-<section class="section dark" id="why" data-aos="fade-up">
-  <h2>Why Choose Us</h2>
-  <div class="features">
-    <div class="feature" data-aos="zoom-in">
-      <h3>Security</h3>
-      <p>2FA, cold wallets, and insurance for your investments.</p>
+  <!-- Stats Section -->
+  <section class="section stats" id="stats" data-aos="fade-up">
+    <div class="stat">
+      <h3 id="users">0</h3>
+      <p>Registered Users</p>
     </div>
-    <div class="feature" data-aos="zoom-in" data-aos-delay="150">
-      <h3>Transparency</h3>
-      <p>Regular audits and real-time investment reports.</p>
+    <div class="stat">
+      <h3 id="power">0</h3>
+      <p>Active Mining Power (TH/s)</p>
     </div>
-    <div class="feature" data-aos="zoom-in" data-aos-delay="300">
-      <h3>Global Access</h3>
-      <p>Accessible worldwide with multiple supported currencies.</p>
+    <div class="stat">
+      <h3 id="withdrawals">0</h3>
+      <p>Total Withdrawals ($)</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Testimonials Carousel -->
-<section class="section" id="testimonials" data-aos="fade-up">
-  <h2>What Our Clients Say</h2>
-  <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="150">
-    <!-- Slides remain same -->
-  </div>
-</section>
+  <!-- Services Section -->
+  <section class="section" id="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card" data-aos="fade-right">
+        <h3>Starter Mining Plan</h3>
+        <p>Perfect for beginners exploring crypto mining.</p>
+        <small>ROI varies. No guaranteed profits.</small>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="150">
+        <h3>Pro Mining Plan</h3>
+        <p>Higher mining capacity for experienced investors.</p>
+        <small>ROI varies. No guaranteed profits.</small>
+      </div>
+      <div class="card" data-aos="fade-left" data-aos-delay="300">
+        <h3>Institutional Solutions</h3>
+        <p>Custom packages for large-scale investors. Fully audited.</p>
+        <small>ROI varies. No guaranteed profits.</small>
+      </div>
+    </div>
+  </section>
 
-<!-- Contact Section -->
-<section class="section" id="contact" data-aos="fade-up">
-  <h2>Contact Us</h2>
-  <form id="contactForm" class="contact-form" data-aos="fade-up" data-aos-delay="200">
-    <!-- Inputs remain same -->
-  </form>
-</section>
+  <!-- Why Choose Us Section -->
+  <section class="section dark" id="why" data-aos="fade-up">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature" data-aos="zoom-in">
+        <h3>Security</h3>
+        <p>2FA, cold wallets, and insurance for your investments.</p>
+      </div>
+      <div class="feature" data-aos="zoom-in" data-aos-delay="150">
+        <h3>Transparency</h3>
+        <p>Regular audits and real-time investment reports.</p>
+      </div>
+      <div class="feature" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Global Access</h3>
+        <p>Accessible worldwide with multiple supported currencies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials" data-aos="fade-up">
+    <h2>What Our Clients Say</h2>
+    <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p>"GlobalstoxFX is transparent, secure, and the ROI has been excellent."</p>
+          <strong>- John D.</strong>
+        </div>
+        <div class="swiper-slide">
+          <p>"The support team is responsive, and I feel confident investing here."</p>
+          <strong>- Sarah K.</strong>
+        </div>
+        <div class="swiper-slide">
+          <p>"Professional and trustworthy platform for crypto mining."</p>
+          <strong>- Ahmed L.</strong>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form id="contactForm" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="formMsg" style="margin-top:15px; font-weight:bold;"></p>
+    </form>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -151,58 +176,50 @@
   <script src="assets/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper carousel for testimonials
+    // Initialize Swiper carousel
     const swiper = new Swiper(".mySwiper", {
       loop: true,
       autoplay: { delay: 5000 },
       pagination: { el: ".swiper-pagination", clickable: true },
     });
+
+    // Contact Form Handler
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("formMsg");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      msg.textContent = "✅ Thank you! Your message has been sent.";
+      form.reset();
+    });
   </script>
 
-  <!-- tsparticles for hero particle animation -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-<script>
-  tsParticles.load("hero", {
-    fpsLimit: 60,
-    background: {
-      color: {
-        value: "transparent"
-      }
-    },
-    particles: {
-      number: {
-        value: 60,
-        density: { enable: true, area: 800 }
+  <!-- tsparticles for hero -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("hero", {
+      fpsLimit: 60,
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: { value: 60, density: { enable: true, area: 800 } },
+        color: { value: "#2563eb" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: { min: 1, max: 4 } },
+        move: { enable: true, speed: 1, direction: "none", random: true, outModes: "out" },
+        links: { enable: true, distance: 150, color: "#2563eb", opacity: 0.3, width: 1 }
       },
-      color: { value: "#2563eb" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: { min: 1, max: 4 } },
-      move: { enable: true, speed: 1, direction: "none", random: true, outModes: "out" },
-      links: { enable: true, distance: 150, color: "#2563eb", opacity: 0.3, width: 1 }
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" },
-        resize: true
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" }, resize: true },
+        modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
       },
-      modes: {
-        repulse: { distance: 100 },
-        push: { quantity: 4 }
-      }
-    },
-    detectRetina: true
-  });
-</script>
+      detectRetina: true
+    });
+  </script>
 
   <!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1200, // Animation duration in ms
-    once: true      // Only animate once on scroll
-  });
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+  </script>
 </body>
-  </html>
+</html>
