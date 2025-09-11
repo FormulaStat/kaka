@@ -11,41 +11,59 @@ menuToggle.addEventListener('click', () => {
 // =========================
 // Scroll-triggered Stats Counters
 // =========================
-const counters = [
-  { id: 'users', target: 1245 },
-  { id: 'power', target: 3500 },
-  { id: 'withdrawals', target: 875000 }
-];
+// --- Stats counters (robust, uses IntersectionObserver) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = [
+    { id: 'users', target: 1245 },        // change to real targets if you have them
+    { id: 'power', target: 3500 },
+    { id: 'withdrawals', target: 875000 }
+  ];
 
-let hasAnimated = false;
+  let animated = false;
 
-function animateCounters() {
+  function animateValue(el, start, end, duration = 1800) {
+    if (!el) return;
+    const range = end - start;
+    let startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const value = Math.floor(start + range * progress);
+      el.textContent = value.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = end.toLocaleString(); // final exact value
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   const statsSection = document.getElementById('stats');
   if (!statsSection) return;
-  
-  const sectionPos = statsSection.getBoundingClientRect().top;
-  const screenPos = window.innerHeight;
 
-  if (!hasAnimated && sectionPos < screenPos) {
-    counters.forEach(counter => {
-      const el = document.getElementById(counter.id);
-      let count = 0;
-      const increment = Math.ceil(counter.target / 200); // ~2 seconds animation
-      const interval = setInterval(() => {
-        count += increment;
-        if (count >= counter.target) {
-          el.textContent = counter.target.toLocaleString();
-          clearInterval(interval);
-        } else {
-          el.textContent = count.toLocaleString();
-        }
-      }, 10);
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        counters.forEach(c => {
+          const el = document.getElementById(c.id);
+          // If element missing, log a helpful message for debugging
+          if (!el) {
+            console.warn(`Counter element #${c.id} not found in DOM.`);
+            return;
+          }
+          animateValue(el, 0, c.target, 1800);
+        });
+        animated = true;
+        obs.unobserve(statsSection);
+      }
     });
-    hasAnimated = true;
-  }
-}
+  }, { threshold: 0.45 });
 
-window.addEventListener('scroll', animateCounters);
+  observer.observe(statsSection);
+});
+
 
 // =========================
 // Contact Form Handler
