@@ -544,3 +544,40 @@ footer a:hover {
   background: rgba(255,255,255,0.2);
   transform: translateX(-50%);
 }
+
+.crypto-ticker {
+  background: #0f172a; /* dark background */
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #2563eb;
+  padding: 10px 0;
+  position: relative;
+}
+
+.crypto-ticker ul {
+  display: flex;
+  gap: 40px;
+  animation: ticker 30s linear infinite;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crypto-ticker li {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.crypto-ticker .up {
+  color: #22c55e; /* green for up */
+}
+
+.crypto-ticker .down {
+  color: #ef4444; /* red for down */
+}
+
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
