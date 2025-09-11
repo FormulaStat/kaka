@@ -115,34 +115,51 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
   });
 });
 
-// === Crypto Ticker ===
-document.addEventListener("DOMContentLoaded", () => {
-  const tickerList = document.getElementById("tickerList");
+// --- Crypto Ticker (Live Prices) ---
+async function loadCryptoPrices() {
+  const tickerList = document.getElementById("ticker-list");
   if (!tickerList) return;
 
-  // Optional: replace sample data with live data if API works
-  async function loadCryptoPrices() {
-    try {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple,solana,cardano&vs_currencies=usd&include_24hr_change=true"
-      );
-      if (!response.ok) throw new Error("API fetch failed");
-      const data = await response.json();
+  try {
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple,tether&vs_currencies=usd"
+    );
+    const data = await res.json();
 
-      tickerList.innerHTML = "";
-      Object.keys(data).forEach((coin) => {
-        const price = data[coin].usd.toFixed(2);
-        const change = data[coin].usd_24h_change.toFixed(2);
-        const direction = change >= 0 ? "up" : "down";
+    // Map coin IDs to readable names
+    const coins = {
+      bitcoin: "BTC",
+      ethereum: "ETH",
+      binancecoin: "BNB",
+      ripple: "XRP",
+      tether: "USDT",
+    };
+
+    tickerList.innerHTML = "";
+
+    for (let key in coins) {
+      if (data[key]) {
+        const price = data[key].usd.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
         const li = document.createElement("li");
-        li.innerHTML = `${coin.toUpperCase()}: $${price} <span class="${direction}">(${change}%)</span>`;
+        li.textContent = `${coins[key]}: ${price}`;
         tickerList.appendChild(li);
-      });
-    } catch (error) {
-      console.warn("Using fallback ticker data:", error);
+      }
     }
+  } catch (err) {
+    console.error("Crypto API failed, fallback active:", err);
+    tickerList.innerHTML = `
+      <li>BTC: $27,500</li>
+      <li>ETH: $1,750</li>
+      <li>BNB: $245</li>
+      <li>XRP: $0.48</li>
+      <li>USDT: $1.00</li>
+    `;
   }
+}
 
-  loadCryptoPrices();
-  setInterval(loadCryptoPrices, 60000);
-});
+// Load immediately and refresh every 2 minutes
+loadCryptoPrices();
+setInterval(loadCryptoPrices, 120000);
