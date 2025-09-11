@@ -158,18 +158,71 @@ body {
 }
 
 /* =========================
-   Badges (About Section)
+   About Section (Two-Column Layout)
 ========================= */
-.badges {
+.about-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  position: relative;
 }
 
-.badges img {
-  height: 60px;
-  width: auto;
+.about-left, .about-right {
+  flex: 1;
+  text-align: left;
+}
+
+.about-left p {
+  margin-bottom: 20px;
+  color: var(--white);
+  line-height: 1.7;
+}
+
+.about-divider {
+  width: 2px;
+  background: rgba(255,255,255,0.3);
+}
+
+.about-right h3 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.values-list {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.values-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: var(--white);
+}
+
+.values-list strong {
+  color: var(--primary);
+}
+
+.about-tagline {
+  margin-top: 20px;
+  font-style: italic;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+  }
+  .about-divider {
+    display: none;
+  }
+  .about-left, .about-right {
+    text-align: center;
+  }
 }
 
 /* =========================
