@@ -96,24 +96,39 @@ if(newsletterForm){
 // =========================
 // Swiper Testimonials Initialization
 // =========================
-// --- Testimonials Carousel ---
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 1,
-  spaceBetween: 20,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    768: { slidesPerView: 2 }, // 2 cards on tablets
-    1024: { slidesPerView: 3 } // 3 cards on desktop
+// --- Testimonials Swiper init (robust, waits for Swiper if needed) ---
+document.addEventListener('DOMContentLoaded', () => {
+  function initSwiperWhenReady(retries = 0) {
+    if (typeof Swiper === 'undefined') {
+      if (retries > 10) {
+        console.error('Swiper failed to load after multiple attempts.');
+        return;
+      }
+      // retry after a short delay (in case script hasn't loaded yet)
+      setTimeout(() => initSwiperWhenReady(retries + 1), 200);
+      return;
+    }
+
+    // Only initialize once (guard)
+    if (document.querySelector('.mySwiper') && !document.querySelector('.mySwiper').swiper) {
+      new Swiper('.mySwiper', {
+        loop: true,
+        autoplay: { delay: 4500, disableOnInteraction: false },
+        slidesPerView: 1,
+        spaceBetween: 24,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: {
+          700: { slidesPerView: 2 },
+          1100: { slidesPerView: 3 }
+        }
+      });
+    }
   }
+
+  initSwiperWhenReady();
 });
+
 // =========================
 // Optional: Smooth Scroll for Navbar Links
 // =========================
