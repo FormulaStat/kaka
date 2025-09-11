@@ -97,7 +97,7 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Fetch live crypto prices from CoinGecko API
+// === Crypto Ticker ===
 async function loadCryptoPrices() {
   try {
     const response = await fetch(
@@ -106,7 +106,9 @@ async function loadCryptoPrices() {
     const data = await response.json();
 
     const tickerList = document.getElementById("tickerList");
-    tickerList.innerHTML = ""; // clear old data
+    if (!tickerList) return; // exit if ticker not found
+
+    tickerList.innerHTML = "";
 
     Object.keys(data).forEach((coin) => {
       const price = data[coin].usd.toFixed(2);
@@ -122,6 +124,6 @@ async function loadCryptoPrices() {
   }
 }
 
-// Load prices initially and refresh every 60s
+// Load ticker on page load + refresh every 60s
 loadCryptoPrices();
 setInterval(loadCryptoPrices, 60000);
