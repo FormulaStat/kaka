@@ -98,32 +98,34 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
 });
 
 // === Crypto Ticker ===
-async function loadCryptoPrices() {
-  try {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,binancecoin,ripple,solana,cardano&vs_currencies=usd&include_24hr_change=true"
-    );
-    const data = await response.json();
+document.addEventListener("DOMContentLoaded", () => {
+  async function loadCryptoPrices() {
+    try {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,binancecoin,ripple,solana,cardano&vs_currencies=usd&include_24hr_change=true"
+      );
+      const data = await response.json();
 
-    const tickerList = document.getElementById("tickerList");
-    if (!tickerList) return;
+      const tickerList = document.getElementById("tickerList");
+      if (!tickerList) return;
 
-    tickerList.innerHTML = ""; // clear old items
+      tickerList.innerHTML = "";
 
-    Object.keys(data).forEach((coin) => {
-      const price = data[coin].usd.toFixed(2);
-      const change = data[coin].usd_24h_change.toFixed(2);
-      const direction = change >= 0 ? "up" : "down";
+      Object.keys(data).forEach((coin) => {
+        const price = data[coin].usd.toFixed(2);
+        const change = data[coin].usd_24h_change.toFixed(2);
+        const direction = change >= 0 ? "up" : "down";
 
-      const li = document.createElement("li");
-      li.innerHTML = `${coin.toUpperCase()}: $${price} <span class="${direction}">(${change}%)</span>`;
-      tickerList.appendChild(li);
-    });
-  } catch (error) {
-    console.error("Error loading crypto prices:", error);
+        const li = document.createElement("li");
+        li.innerHTML = `${coin.toUpperCase()}: $${price} <span class="${direction}">(${change}%)</span>`;
+        tickerList.appendChild(li);
+      });
+    } catch (error) {
+      console.error("Error loading crypto prices:", error);
+    }
   }
-}
 
-// Initial load + refresh every 60 seconds
-loadCryptoPrices();
-setInterval(loadCryptoPrices, 60000);
+  // Initial load + refresh every 60s
+  loadCryptoPrices();
+  setInterval(loadCryptoPrices, 60000);
+});
