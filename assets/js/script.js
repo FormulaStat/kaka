@@ -106,9 +106,9 @@ async function loadCryptoPrices() {
     const data = await response.json();
 
     const tickerList = document.getElementById("tickerList");
-    if (!tickerList) return; // exit if ticker not found
+    if (!tickerList) return;
 
-    tickerList.innerHTML = "";
+    tickerList.innerHTML = ""; // clear old items
 
     Object.keys(data).forEach((coin) => {
       const price = data[coin].usd.toFixed(2);
@@ -124,6 +124,6 @@ async function loadCryptoPrices() {
   }
 }
 
-// Load ticker on page load + refresh every 60s
+// Initial load + refresh every 60 seconds
 loadCryptoPrices();
 setInterval(loadCryptoPrices, 60000);
