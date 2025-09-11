@@ -154,47 +154,55 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
+  <!-- Testimonials Section (restored original names) -->
 <section class="section" id="testimonials" data-aos="fade-up">
   <h2>What Our Clients Say</h2>
+
+  <!-- Swiper Container -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <!-- Testimonial 1 -->
+      <!-- Testimonial: Sarah M. -->
       <div class="swiper-slide testimonial">
         <img src="assets/img/clients/sarah.jpg" alt="Sarah M." class="testimonial-img">
         <p>"GlobalstoxFX has been my go-to investment platform. The transparency and security are unmatched."</p>
-        <h4>- Sarah M., UK</h4>
+        <h4>— Sarah M., UK</h4>
       </div>
-      <!-- Testimonial 2 -->
+
+      <!-- Testimonial: David K. -->
       <div class="swiper-slide testimonial">
         <img src="assets/img/clients/david.jpg" alt="David K." class="testimonial-img">
-        <p>"I started with the Starter Mining Plan and scaled up. Withdrawals are always on time. Love it!"</p>
-        <h4>- David K., Canada</h4>
+        <p>"I started with the Starter Mining Plan and scaled up. Withdrawals are always on time."</p>
+        <h4>— David K., Canada</h4>
       </div>
-      <!-- Testimonial 3 -->
+
+      <!-- Testimonial: Chen W. -->
       <div class="swiper-slide testimonial">
         <img src="assets/img/clients/chen.jpg" alt="Chen W." class="testimonial-img">
-        <p>"Institutional solutions are top-tier. Audited, insured, and highly reliable. Highly recommend!"</p>
-        <h4>- Chen W., Singapore</h4>
+        <p>"Institutional solutions are top-tier. Audited, insured, and highly reliable."</p>
+        <h4>— Chen W., Singapore</h4>
       </div>
-      <!-- Testimonial 4 -->
+
+      <!-- Testimonial: Maria R. -->
       <div class="swiper-slide testimonial">
         <img src="assets/img/clients/maria.jpg" alt="Maria R." class="testimonial-img">
-        <p>"Their customer support is excellent. I got quick help and clear explanations whenever I had questions."</p>
-        <h4>- Maria R., Spain</h4>
+        <p>"Their customer support is excellent. Quick help and clear explanations whenever I had questions."</p>
+        <h4>— Maria R., Spain</h4>
       </div>
-      <!-- Testimonial 5 -->
+
+      <!-- Testimonial: Ahmed Z. -->
       <div class="swiper-slide testimonial">
         <img src="assets/img/clients/ahmed.jpg" alt="Ahmed Z." class="testimonial-img">
         <p>"GlobalstoxFX gives me peace of mind with their compliance and insurance-backed safeguards."</p>
-        <h4>- Ahmed Z., UAE</h4>
+        <h4>— Ahmed Z., UAE</h4>
       </div>
     </div>
-    <!-- Pagination Dots -->
+
+    <!-- Pagination & Navigation -->
     <div class="swiper-pagination"></div>
+    <div class="swiper-button-next" aria-label="Next slide"></div>
+    <div class="swiper-button-prev" aria-label="Previous slide"></div>
   </div>
 </section>
-
   
   <!-- Contact Section -->
   <section class="section" id="contact" data-aos="fade-up">
@@ -237,15 +245,7 @@
 
   <!-- Scripts -->
   <script src="assets/js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper carousel
-    const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: { delay: 5000 },
-      pagination: { el: ".swiper-pagination", clickable: true },
-    });
-
     // Contact Form Handler
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
@@ -285,23 +285,6 @@
     AOS.init({ duration: 1200, once: true });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
+
 </body>
 </html>
