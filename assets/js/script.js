@@ -190,3 +190,18 @@ async function loadCryptoPrices() {
 // Load immediately and refresh every 2 minutes
 loadCryptoPrices();
 setInterval(loadCryptoPrices, 120000);
+
+// Expand/Collapse Read More
+document.querySelectorAll(".toggle-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".what-card");
+    card.classList.toggle("expanded");
+
+    // Change button text
+    if (card.classList.contains("expanded")) {
+      btn.textContent = "Read Less";
+    } else {
+      btn.textContent = "Read More";
+    }
+  });
+});
