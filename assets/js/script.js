@@ -99,33 +99,32 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
 
 // === Crypto Ticker ===
 document.addEventListener("DOMContentLoaded", () => {
+  const tickerList = document.getElementById("tickerList");
+  if (!tickerList) return;
+
+  // Optional: replace sample data with live data if API works
   async function loadCryptoPrices() {
     try {
       const response = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,binancecoin,ripple,solana,cardano&vs_currencies=usd&include_24hr_change=true"
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple,solana,cardano&vs_currencies=usd&include_24hr_change=true"
       );
+      if (!response.ok) throw new Error("API fetch failed");
       const data = await response.json();
 
-      const tickerList = document.getElementById("tickerList");
-      if (!tickerList) return;
-
       tickerList.innerHTML = "";
-
       Object.keys(data).forEach((coin) => {
         const price = data[coin].usd.toFixed(2);
         const change = data[coin].usd_24h_change.toFixed(2);
         const direction = change >= 0 ? "up" : "down";
-
         const li = document.createElement("li");
         li.innerHTML = `${coin.toUpperCase()}: $${price} <span class="${direction}">(${change}%)</span>`;
         tickerList.appendChild(li);
       });
     } catch (error) {
-      console.error("Error loading crypto prices:", error);
+      console.warn("Using fallback ticker data:", error);
     }
   }
 
-  // Initial load + refresh every 60s
   loadCryptoPrices();
   setInterval(loadCryptoPrices, 60000);
 });
