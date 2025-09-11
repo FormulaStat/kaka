@@ -96,12 +96,24 @@ if(newsletterForm){
 // =========================
 // Swiper Testimonials Initialization
 // =========================
+// --- Testimonials Carousel ---
 const swiper = new Swiper(".mySwiper", {
   loop: true,
-  autoplay: { delay: 5000 },
-  pagination: { el: ".swiper-pagination", clickable: true },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: { slidesPerView: 2 }, // 2 cards on tablets
+    1024: { slidesPerView: 3 } // 3 cards on desktop
+  }
 });
-
 // =========================
 // Optional: Smooth Scroll for Navbar Links
 // =========================
