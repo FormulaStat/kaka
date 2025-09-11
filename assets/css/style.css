@@ -546,13 +546,15 @@ footer a:hover {
 }
 
 .crypto-ticker {
-  background: #0f172a; /* dark background */
+  background: #0f172a; /* dark navy */
   color: #fff;
   overflow: hidden;
   white-space: nowrap;
+  border-top: 2px solid #2563eb;
   border-bottom: 2px solid #2563eb;
   padding: 10px 0;
   position: relative;
+  width: 100%;
 }
 
 .crypto-ticker ul {
@@ -570,11 +572,11 @@ footer a:hover {
 }
 
 .crypto-ticker .up {
-  color: #22c55e; /* green for up */
+  color: #22c55e;
 }
 
 .crypto-ticker .down {
-  color: #ef4444; /* red for down */
+  color: #ef4444;
 }
 
 @keyframes ticker {
