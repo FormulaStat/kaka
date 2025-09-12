@@ -656,3 +656,55 @@ footer a:hover {
   margin-bottom: 20px;
   text-shadow: none; /* remove glow */
 }
+
+/*-_-_-_ Why Choose Us _-_-_-*/
+
+.why-choose-us {
+  padding: 80px 20px;
+  background: #f9fbff;
+  text-align: center;
+}
+
+.why-choose-us h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.reason-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.reason-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 12px 25px rgba(0,0,0,0.15);
+}
+
+.reason-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.reason-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.reason-card.wide {
+  grid-column: span 2;
+}
