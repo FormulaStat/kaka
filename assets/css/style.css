@@ -650,10 +650,9 @@ footer a:hover {
 }
 
 #what h2 {
-  color: #fff;
+  color: #000; /* plain black */
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(0, 180, 255, 0.7), 
-               0 0 20px rgba(0, 180, 255, 0.5);
+  text-shadow: none; /* remove glow */
 }
