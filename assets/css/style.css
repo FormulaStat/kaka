@@ -708,3 +708,10 @@ footer a:hover {
 .reason-card.wide {
   grid-column: span 2;
 }
+
+.reason-card i {
+  font-size: 2.5rem;
+  color: #0056d6; /* premium fintech blue */
+  margin-bottom: 15px;
+  display: block;
+}
