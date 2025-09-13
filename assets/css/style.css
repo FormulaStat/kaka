@@ -728,3 +728,17 @@ footer a:hover {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+/* Zoom animation */
+@keyframes zoomPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* When card is shown */
+.show {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(0) !important;
+  animation: zoomPulse 5s ease-in-out infinite;
+}
