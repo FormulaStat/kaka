@@ -292,3 +292,19 @@ document.addEventListener('DOMContentLoaded', () => {
   cards.forEach(card => {
     observer.observe(card);
   });
+
+  // Intersection Observer for scroll animations
+  const cards = document.querySelectorAll('.reason-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); // trigger once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
