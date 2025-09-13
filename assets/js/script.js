@@ -277,18 +277,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-  
-
   const cards = document.querySelectorAll('.reason-card');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 400); // stagger animation
-      }
-    });
-  }, { threshold: 0.3 });
-
-  cards.forEach(card => observer.observe(card));
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show','delay-'+((i%4)+1));
+      obs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.25});
+cards.forEach(c=>obs.observe(c));
