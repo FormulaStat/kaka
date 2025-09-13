@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   
+
   const cards = document.querySelectorAll('.reason-card');
 
   const observer = new IntersectionObserver(entries => {
@@ -285,11 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add('show');
-        }, index * 300); // staggered slide-in
+        }, index * 400); // stagger animation
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.3 });
 
-  cards.forEach(card => {
-    observer.observe(card);
-  });
+  cards.forEach(card => observer.observe(card));
