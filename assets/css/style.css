@@ -697,47 +697,36 @@ footer a:hover {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   padding: 30px;
-  max-width: 300px;
+  max-width: 320px;
   text-align: center;
-  transition: all 0.8s ease;
   opacity: 0;
-  transform: translateY(80px); /* hidden state */
+  transform: translateY(60px); /* start hidden */
+  transition: all 0.8s ease;
 }
 
 .reason-card.show {
   opacity: 1;
   transform: translateY(0);
-  animation: zoomPulse 5s ease-in-out infinite;
 }
 
-.reason-card i {
-  font-size: 2.5rem;
-  color: #0056d6;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
+/* Zoom pulse after appearing */
+.reason-card.show {
+  animation: zoomPulse 6s ease-in-out infinite;
 }
 
-.reason-card:hover i {
-  transform: scale(1.15);
-  color: #0a84ff;
-}
-
-/* Zoom pulse */
 @keyframes zoomPulse {
-  0% { transform: scale(1); }
+  0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 }
 
-/* Compliance section (separate full-width box) */
+/* Compliance section */
 .compliance-section {
   background: #003366;
   color: #fff;
   padding: 80px 20px;
   text-align: center;
 }
-
-.compliance-section h2 {
+.compliance-section h2 { 
   font-size: 2.2rem;
   margin-bottom: 20px;
   font-weight: 700;
