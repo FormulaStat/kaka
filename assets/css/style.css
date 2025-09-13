@@ -253,4 +253,20 @@ footer{background:var(--dark);color:#cfcfcf;text-align:center;padding:30px 20px}
   .crypto-ticker .ticker-wrapper{animation-duration:40s}
 }
 
+
+.reason-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.reason-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reason-card.pulse {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 /* ===== End of stylesheet ===== */
