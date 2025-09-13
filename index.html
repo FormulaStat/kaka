@@ -397,5 +397,38 @@
   </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+  <script>
+// Animate "Why Choose Us" cards when they enter viewport
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".reason-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("show");
+          }, index * 200); // stagger delay (200ms per card)
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+
+  // Zoom pulse every 5s
+  setInterval(() => {
+    cards.forEach((card, i) => {
+      setTimeout(() => {
+        card.classList.add("pulse");
+        setTimeout(() => {
+          card.classList.remove("pulse");
+        }, 1000); // remove pulse after animation
+      }, i * 300);
+    });
+  }, 5000);
+});
+  </script>
 </body>
 </html>
