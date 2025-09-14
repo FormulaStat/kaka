@@ -1088,8 +1088,10 @@ outline-offset:4px}
 
 .comparison-table td {
   background: rgba(0,0,0,0.2);
-  color: #f1f1f1;
-  font-weight: 500;
+  color: #4ea1ff;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: background 0.3s ease;
 }
 
 .comparison-table tr:hover td {
