@@ -732,5 +732,23 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </div>
+  <script>
+  // WhatsApp Chat Toggle
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatBox = document.getElementById("chat-box");
+  const chatClose = document.getElementById("chat-close");
+
+  // Open chat box
+  chatToggle.addEventListener("click", () => {
+    chatBox.style.display = "flex";
+    chatToggle.style.display = "none";
+  });
+
+  // Close chat box
+  chatClose.addEventListener("click", () => {
+    chatBox.style.display = "none";
+    chatToggle.style.display = "flex";
+  });
+  </script>
 </body>
 </html>
