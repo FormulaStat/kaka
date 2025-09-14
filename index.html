@@ -703,6 +703,41 @@ document.addEventListener("DOMContentLoaded", () => {
     easing: 'ease-in-out'
   });
 </script>
+  <script>
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatBox = document.getElementById("chat-box");
+  const chatClose = document.getElementById("chat-close");
+
+  // Detect if mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  chatToggle.addEventListener("click", () => {
+    if (isMobile) {
+      // Mobile: open WhatsApp directly
+      window.open(
+        "https://wa.me/17055673276?text=Hello%20GlobalstoxFX%20Support%2C%20I%20need%20help",
+        "_blank"
+      );
+    } else {
+      // Desktop: show chat box
+      chatBox.style.display = "flex";
+      chatToggle.style.display = "none";
+    }
+  });
+
+  chatClose.addEventListener("click", () => {
+    chatBox.style.display = "none";
+    chatToggle.style.display = "flex";
+  });
+
+  // ✅ Auto-open chat box on desktop after 5 seconds
+  if (!isMobile) {
+    setTimeout(() => {
+      chatBox.style.display = "flex";
+      chatToggle.style.display = "none";
+    }, 5000);
+  }
+  </script>
   <!-- Floating WhatsApp Chat -->
 <div id="whatsapp-chat">
   <!-- Floating Toggle Button -->
@@ -710,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </div>
 
-  <!-- Chat Box -->
+  <!-- Chat Box (desktop only) -->
   <div class="chat-box" id="chat-box">
     <div class="chat-header">
       <div class="chat-info">
@@ -732,23 +767,5 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </div>
-  <script>
-  // WhatsApp Chat Toggle
-  const chatToggle = document.getElementById("chat-toggle");
-  const chatBox = document.getElementById("chat-box");
-  const chatClose = document.getElementById("chat-close");
-
-  // Open chat box
-  chatToggle.addEventListener("click", () => {
-    chatBox.style.display = "flex";
-    chatToggle.style.display = "none";
-  });
-
-  // Close chat box
-  chatClose.addEventListener("click", () => {
-    chatBox.style.display = "none";
-    chatToggle.style.display = "flex";
-  });
-  </script>
 </body>
 </html>
