@@ -589,33 +589,90 @@
   </div>
 </section>
 
-  
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 GlobalstoxFX | Licensed & Regulated</p>
+  <!-- =========================
+  Footer Section
+========================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+    
+    <!-- Company Overview -->
+    <div class="footer-col">
+      <h3 class="footer-logo">GlobalstoxFX</h3>
+      <p class="footer-about">
+        GlobalstoxFX is a licensed and regulated digital investment platform providing 
+        secure, transparent, and innovative opportunities in the crypto and financial markets. 
+        Since 2011, we have combined cutting-edge technology with strong compliance standards (AML/KYC) 
+        to deliver a trusted environment where investors build wealth with confidence.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/plans">Investment Plans</a></li>
+        <li><a href="/blog">Insights</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/docs/risk-disclosure.pdf" target="_blank">Risk Disclosure</a></li>
+      </ul>
+    </div>
+
+    <!-- Support & Contact -->
+    <div class="footer-col">
+      <h4>Contact & Support</h4>
+      <ul class="footer-contact">
+        <li>📍 350 5th Avenue, New York, NY 10118, USA</li>
+        <li>📞 <a href="tel:+17055673276">+1 (705) 567-3276</a></li>
+        <li>📧 <a href="mailto:support@globalstoxfx.com">support@globalstoxfx.com</a></li>
+        <li>⏰ Mon – Fri: 9am – 6pm (EST)</li>
+      </ul>
+      <div class="footer-social">
+        <a href="#" target="_blank">🌐</a>
+        <a href="#" target="_blank">🐦</a>
+        <a href="#" target="_blank">📘</a>
+        <a href="#" target="_blank">📸</a>
+        <a href="#" target="_blank">✈️</a>
+      </div>
+    </div>
 
     <!-- Newsletter -->
-    <div class="newsletter">
-      <h3>Stay Updated</h3>
-      <form id="newsletterForm">
-        <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
-        <button type="submit" class="btn small">Subscribe</button>
+    <div class="footer-col">
+      <h4>Stay Updated</h4>
+      <p>Subscribe to receive market insights and investment opportunities.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Subscribe</button>
       </form>
-      <p id="newsletterMsg" style="margin-top:10px; font-weight:bold;"></p>
+      <div class="footer-badges">
+        <img src="/images/ssl-secure.png" alt="SSL Secure" />
+        <img src="/images/visa.png" alt="Visa" />
+        <img src="/images/mastercard.png" alt="MasterCard" />
+        <img src="/images/crypto.png" alt="Crypto Accepted" />
+      </div>
     </div>
 
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <a href="#"><img src="assets/img/telegram.png" alt="Telegram"></a>
-      <a href="#"><img src="assets/img/x.png" alt="X"></a>
-      <a href="#"><img src="assets/img/linkedin.png" alt="LinkedIn"></a>
-    </div>
+  </div>
 
-    <!-- Compliance / Legal -->
-    <div class="footer-compliance">
-      <p>Terms of Service | Privacy Policy | AML / KYC Policy | Risk Disclosure</p>
-    </div>
-  </footer>
+  <!-- Legal Bottom Bar -->
+  <div class="footer-bottom">
+    <p class="risk-warning">
+      ⚠️ Investing involves risk of capital loss. Past performance is not indicative of future results. 
+      Please read our <a href="/docs/risk-disclosure.pdf" target="_blank">Risk Disclosure</a>, 
+      <a href="/terms">Terms of Service</a>, and <a href="/privacy">Privacy Policy</a>.
+    </p>
+    <p class="copyright">
+      &copy; <span id="year"></span> GlobalstoxFX. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Auto-update year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  
 
   <!-- Scripts -->
   <script src="assets/js/script.js"></script>
