@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,9 +37,19 @@
   </nav>
 
   <!-- =========================
-     Hero Section
+     Hero Section (Video Background)
 ========================= -->
 <section class="hero" id="home">
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="/images/herosv.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
   <div class="hero-content" data-aos="fade-up">
     <h1>Secure & Transparent Digital Investments</h1>
     <p>
@@ -53,7 +63,7 @@
     </div>
   </div>
 </section>
-
+  
   <!-- About Section -->
 <section class="section dark" id="about">
   <h2 data-aos="fade-up">About GlobalstoxFX</h2>
