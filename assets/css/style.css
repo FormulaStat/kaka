@@ -1124,4 +1124,31 @@ outline-offset:4px}
   color: #4ea1ff;
   text-decoration: underline;
 }
+
+/* =========================
+   Desktop View Spacing & Alignment
+========================= */
+@media (min-width: 992px) {
+  #investment-plans {
+    padding: 80px 40px; /* more breathing space */
+  }
+
+  .plans-grid {
+    gap: 40px; /* more space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* wider cards */
+  }
+
+  .plan-card {
+    padding: 28px; /* more inner spacing */
+    border-radius: 20px; /* cleaner edges */
+  }
+
+  #investment-plans .section-title {
+    margin-bottom: 24px; /* more gap before cards */
+  }
+
+  #investment-plans .section-note {
+    margin-bottom: 60px; /* better breathing space */
+  }
+}
 /* ===== End of stylesheet ===== */
