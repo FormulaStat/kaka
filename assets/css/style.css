@@ -923,7 +923,7 @@ outline-offset:4px}
   padding: 8px 52px;
   transform: rotate(45deg);
   font-weight: 700;
-  font-size: .9rem;
+  font-size: 0.9rem; /* fixed from .9rem */
   box-shadow: 0 6px 18px rgba(16,24,40,0.3);
 }
 
@@ -1119,6 +1119,7 @@ outline-offset:4px}
   margin-top: 20px;
   text-align: center;
 }
+
 .risk-note a {
   color: #4ea1ff;
   text-decoration: underline;
