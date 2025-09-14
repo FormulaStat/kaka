@@ -340,5 +340,5 @@ document.getElementById("crypto-search-input").addEventListener("input", (e) => 
 
 // Fetch on load
 fetchCryptoData();
-// Auto refresh every 60 seconds
-setInterval(fetchCryptoData, 60000);
+// Auto refresh every 10 seconds
+setInterval(fetchCryptoData, 10000);
