@@ -767,4 +767,84 @@ outline-offset:4px}
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
+
+   /*--- crypto markets insights ---*/
+.crypto-market {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.crypto-market h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0a0f2c;
+}
+
+.crypto-table-wrapper {
+  overflow-x: auto;
+  max-height: 600px;
+}
+
+.crypto-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.crypto-table th, 
+.crypto-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.crypto-table th {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.crypto-table td {
+  color: #333;
+}
+
+.crypto-table tr:last-child td {
+  border-bottom: none;
+}
+
+.crypto-table .positive {
+  color: #16a34a; /* Green */
+  font-weight: 600;
+}
+
+.crypto-table .negative {
+  color: #dc2626; /* Red */
+  font-weight: 600;
+}
+
+.crypto-table img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.powered-by {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #666;
+}
+.powered-by a {
+  color: #2563eb;
+  text-decoration: none;
+}
 /* ===== End of stylesheet ===== */
