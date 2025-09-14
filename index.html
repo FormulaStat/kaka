@@ -264,7 +264,128 @@
   </div>
 </section>
   
+<!-- =========================
+  Investment Plans Section
+========================= -->
+<section id="investment-plans" class="section">
+  <div class="container">
+    <h2 class="section-title">Refined Investment Plans</h2>
+    <p class="section-note">
+      <strong>Important Legal Note:</strong> All returns shown are illustrative. 
+      Investment returns are variable and not guaranteed. Past performance is not indicative of future results. 
+      Participation is subject to AML/KYC verification and acceptance of our Terms of Service and Risk Disclosure.
+    </p>
 
+    <!-- Plans Grid -->
+    <div class="plans-grid">
+
+      <!-- Starter Plan -->
+      <div class="plan-card" data-plan="Starter" data-min="250" data-max="5000" data-rate="0.015" data-duration="5" data-referral="2">
+        <div class="plan-ribbon">Starter</div>
+        <h3>$250 – $5,000</h3>
+        <p class="plan-sub">1.5% Daily · 5 days · Referral 2%</p>
+        <ul class="plan-features">
+          <li>Auto-compounding daily</li>
+          <li>Real-time dashboard</li>
+          <li>Email support</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+
+      <!-- Corporate Plan -->
+      <div class="plan-card" data-plan="Corporate" data-min="5500" data-max="16800" data-rate="0.02" data-duration="5" data-referral="5">
+        <div class="plan-ribbon">Corporate</div>
+        <h3>$5,500 – $16,800</h3>
+        <p class="plan-sub">2% Daily · 5 days · Referral 5%</p>
+        <ul class="plan-features">
+          <li>Priority reporting</li>
+          <li>Higher capacity</li>
+          <li>Account manager</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+
+      <!-- Archive Plan -->
+      <div class="plan-card" data-plan="Archive" data-min="17000" data-max="49000" data-rate="0.03" data-duration="5" data-referral="5">
+        <div class="plan-ribbon">Archive</div>
+        <h3>$17,000 – $49,000</h3>
+        <p class="plan-sub">3% Daily · 5 days · Referral 5%</p>
+        <ul class="plan-features">
+          <li>Audit-ready reporting</li>
+          <li>Dedicated analytics</li>
+          <li>Priority withdrawals</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+
+      <!-- Family Plan -->
+      <div class="plan-card" data-plan="Family" data-min="50000" data-max="999999999" data-rate="0.05" data-duration="7" data-referral="5">
+        <div class="plan-ribbon">Family</div>
+        <h3>$50,000+</h3>
+        <p class="plan-sub">5% Daily · 7 days · Referral 5%</p>
+        <ul class="plan-features">
+          <li>Relationship manager</li>
+          <li>Bespoke reporting</li>
+          <li>Enhanced custody</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+
+      <!-- Mentorship Plan -->
+      <div class="plan-card" data-plan="Mentorship" data-min="200000" data-max="999999999" data-rate="0.08" data-duration="14" data-referral="10" data-bonus="100">
+        <div class="plan-ribbon">Mentorship</div>
+        <h3>$200,000+</h3>
+        <p class="plan-sub">8% Daily · 14 days · Referral 10% · $100 Signup</p>
+        <ul class="plan-features">
+          <li>Direct mentorship</li>
+          <li>Co-investing access</li>
+          <li>Priority liquidity</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+
+      <!-- Savings Plan -->
+      <div class="plan-card" data-plan="Savings" data-min="50000" data-max="1000000" data-rate="0.05" data-duration="180" data-referral="10" data-bonus="500">
+        <div class="plan-ribbon">Savings</div>
+        <h3>$50,000 – $1,000,000</h3>
+        <p class="plan-sub">5% Daily · 6 months · Referral 10% · $500 Signup</p>
+        <ul class="plan-features">
+          <li>Long-term reporting</li>
+          <li>Optional withdrawal windows</li>
+          <li>Wealth preservation services</li>
+        </ul>
+        <button class="btn plan-cta">View calculator</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+  Modal: Plan Calculator
+========================= -->
+<div id="planModal" class="plan-modal" aria-hidden="true">
+  <div class="plan-modal-inner" role="dialog" aria-modal="true" aria-labelledby="planModalTitle">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <h3 id="planModalTitle">Plan</h3>
+    <div class="plan-modal-body">
+      <div class="plan-calculator">
+        <label>Deposit amount: 
+          <input id="modalDeposit" type="number" min="0" />
+        </label>
+        <p>Projected payout: <strong id="modalPayout">$0.00</strong></p>
+        <p>Referral: <span id="modalReferral">0%</span></p>
+        <p>Sign-up bonus (if any): <span id="modalBonus">$0</span></p>
+        <button id="modalInvest" class="btn">Proceed to Sign Up</button>
+      </div>
+      <div class="plan-terms">
+        <h4>Plan Terms & Notes</h4>
+        <p id="modalTerms">Terms text here...</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  
   <!-- Testimonials Section  -->
 <section class="section" id="testimonials" data-aos="fade-up">
   <h2>What Our Clients Say</h2>
