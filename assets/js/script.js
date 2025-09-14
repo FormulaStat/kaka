@@ -446,6 +446,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================
+  // Count-up Animation Helper
+  // =========================
+  function animateCountUp(el, start, end, duration = 1200) {
+    const range = end - start;
+    let startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const value = start + range * progress;
+      el.textContent = formatCurrency(value.toFixed(2));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // =========================
   // Comparison Table Builder
   // =========================
   const comparisonBody = document.getElementById('comparisonBody');
@@ -466,7 +485,8 @@ document.addEventListener('DOMContentLoaded', () => {
       plans.forEach(plan => {
         const payout = compoundAmount(dep, plan.rate, plan.duration);
         const cell = document.createElement('td');
-        cell.textContent = formatCurrency(payout);
+        // animate count-up (start at dep, grow to payout)
+        animateCountUp(cell, dep, payout, 1500);
         row.appendChild(cell);
       });
 
