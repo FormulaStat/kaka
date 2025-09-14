@@ -780,6 +780,19 @@ outline-offset:4px}
   color: #0a0f2c;
 }
 
+/* Search Bar */
+.crypto-search {
+  margin-bottom: 20px;
+}
+.crypto-search input {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
 .crypto-table-wrapper {
   overflow-x: auto;
   max-height: 600px;
