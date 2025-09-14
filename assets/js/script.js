@@ -444,3 +444,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// =========================
+  // Comparison Table Builder
+  // =========================
+  const comparisonBody = document.getElementById('comparisonBody');
+  if (comparisonBody) {
+    const deposits = [500, 1000, 5000, 10000]; // sample deposits
+    const plans = Array.from(document.querySelectorAll('.plan-card')).map(card => ({
+      name: card.getAttribute('data-plan'),
+      rate: Number(card.getAttribute('data-rate')),
+      duration: Number(card.getAttribute('data-duration'))
+    }));
+
+    deposits.forEach(dep => {
+      const row = document.createElement('tr');
+      const depCell = document.createElement('td');
+      depCell.textContent = formatCurrency(dep);
+      row.appendChild(depCell);
+
+      plans.forEach(plan => {
+        const payout = compoundAmount(dep, plan.rate, plan.duration);
+        const cell = document.createElement('td');
+        cell.textContent = formatCurrency(payout);
+        row.appendChild(cell);
+      });
+
+      comparisonBody.appendChild(row);
+    });
+  }
