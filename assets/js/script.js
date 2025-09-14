@@ -287,3 +287,40 @@ const obs = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.25});
 cards.forEach(c=>obs.observe(c));
+
+async function fetchCryptoData() {
+  try {
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
+    );
+    const data = await res.json();
+
+    let rows = "";
+    data.forEach((coin, index) => {
+      rows += `
+        <tr>
+          <td>${index + 1}</td>
+          <td><img src="${coin.image}" alt="${coin.name}"> ${coin.name}</td>
+          <td>${coin.symbol.toUpperCase()}</td>
+          <td>$${coin.current_price.toLocaleString()}</td>
+          <td class="${coin.price_change_percentage_24h >= 0 ? "positive" : "negative"}">
+            ${coin.price_change_percentage_24h?.toFixed(2) ?? "0.00"}%
+          </td>
+          <td>$${coin.market_cap.toLocaleString()}</td>
+          <td>$${coin.total_volume.toLocaleString()}</td>
+        </tr>
+      `;
+    });
+
+    document.getElementById("crypto-data").innerHTML = rows;
+  } catch (error) {
+    document.getElementById("crypto-data").innerHTML =
+      "<tr><td colspan='7'>⚠️ Error loading data</td></tr>";
+    console.error(error);
+  }
+}
+
+// Fetch on load
+fetchCryptoData();
+// Auto refresh every 60 seconds
+setInterval(fetchCryptoData, 60000);
